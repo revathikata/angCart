@@ -1,0 +1,14 @@
+<div class="navbar navbar-dark bg-primary shadow-sm">
+    <div class="navbar-brand align-item-center d-flex">
+        
+        <strong>flipkart</strong>
+    </div>
+    <div class="serch d-flex">
+        <input type="text" class="form-control headInput" [(ngModel)]="searchText" (keyup)="search($event)" placeholder="search products">
+        <mat-icon class="searchIcon">search</mat-icon>
+    </div>
+    <div class="btn" >
+       <mat-icon routerLink="/cart" style="color: white;">add_shopping_cart</mat-icon>
+       <div  class="badge bg-danger">{{totalItems}}</div>
+    </div>
+</div>

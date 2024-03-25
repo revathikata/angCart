@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="container row">
+        <div class="item col-lg-3">
+            <a (click)="filter('')">
+                <img src="assets/allpro.jpg" alt="">
+                <h6>All Products</h6>
+            </a>
+        </div>
+        <div class="item col-lg-3">
+            <a (click)="filter('electronics')">
+                <img src="assets/electronics.jfif" alt="">
+                <h6>Electronics</h6>
+            </a>
+        </div>
+        <div class="item col-lg-3">
+            <a (click)="filter('fashion')">
+                <img src="assets/ecomerce-img1.jpg" alt="">
+                <h6>Fashion</h6>
+            </a>
+        </div>
+        <div class="item col-lg-3">
+            <a (click)="filter('jewelery')">
+                <img src="assets/jewel.jpg" alt="">
+                <h6>jewelery</h6>
+            </a>
+        </div>
+
+        <button (click)="functions()">functions</button>
+       
+    </div>
+</div>
+
+<div class="container">
+    <div class="row g-2 g-lg-3">
+        <ng-container *ngFor="let items of filterCategory | filter:searchkey:'title'">
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                <img src={{items.image}} alt="">
+                <h5 style="white-space: nowrap;overflow: hidden; text-overflow: ellipsis;max-width: 100ch;">
+                    {{items.title}}</h5>
+                <p style="white-space: nowrap;overflow: hidden; text-overflow: ellipsis;max-width: 100ch;">
+                    {{items.description}}</p>
+                <p><strong>price:</strong>${{items.price}}</p>
+                <button (click)="addToCart(items)" class="btn btn-primary">Add to cart</button>
+            </div>
+        </div>
+        </ng-container>
+
+    </div>
+</div>
