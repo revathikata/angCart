@@ -1,14 +1,18 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-ang-concepts',
   templateUrl: './ang-concepts.component.html',
-  styleUrl: './ang-concepts.component.css'
+  styleUrl: './ang-concepts.component.css',
+  // encapsulation: ViewEncapsulation.None,
 })
 export class AngConceptsComponent implements OnChanges,OnInit,DoCheck,AfterContentInit
 ,AfterContentChecked, AfterViewInit,AfterViewChecked,OnDestroy{
 @Input() ChildData : any;
-
+ @Output() notify : EventEmitter<string> = new EventEmitter<string>()
+ passData(){
+  this.notify.emit("this msg coming from child")
+ }
 constructor(){
   console.log("constructor called");
   

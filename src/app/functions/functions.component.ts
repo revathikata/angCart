@@ -1,13 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-functions',
   templateUrl: './functions.component.html',
   styleUrl: './functions.component.css',
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class FunctionsComponent {
 pData= ''
 destroy: boolean = true;
+items = ['item1', 'item2', 'item3', 'item4'];
+  childD: any;
+parentComp(newItem: any) {
+  // this.items.push(newItem);
+  this.childD = newItem
+}
 constructor(){
   
 }

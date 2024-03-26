@@ -1,0 +1,13 @@
+button{
+    background-color: orange;
+}
+[_nghost-pmm-5] {
+    display: block;
+    background-color: red;
+    color: white;
+    border: 1px solid black;
+  }
+  .viewEncapsulation{
+    background: green;
+    color: white;
+  }

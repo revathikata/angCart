@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { ServicesService } from '../../service/services.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
+  encapsulation:ViewEncapsulation.Emulated
 })
 export class HeaderComponent {
   public totalItems:  number = 0;

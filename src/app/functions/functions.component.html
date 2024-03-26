@@ -25,8 +25,9 @@
 <button (click)="IncludesFromIndex()">Includes From Index</button>
 <button (click)="At()">At </button>
 <input type="text" [(ngModel)] = "pData" >
-<app-ang-concepts [ChildData]="pData" *ngIf="destroy">
+<app-ang-concepts [ChildData]="pData" *ngIf="destroy" (notify)="parentComp($event)">
     <h1>some child dd {{pData}}</h1>
+    <h4 class="viewEncapsulation">viewEncapsulation Emulated class name given same</h4>
 </app-ang-concepts>
-
-<button (click)="destroyComp()">Destroy</button>
+<p>{{childD}}</p>
+<button (click)="destroyComp()" _nghost-pmm-5>Destroy</button>
