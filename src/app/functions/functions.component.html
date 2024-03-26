@@ -25,4 +25,8 @@
 <button (click)="IncludesFromIndex()">Includes From Index</button>
 <button (click)="At()">At </button>
 <input type="text" [(ngModel)] = "pData" >
-<app-ang-concepts [ChildData]="pData"></app-ang-concepts>
+<app-ang-concepts [ChildData]="pData" *ngIf="destroy">
+    <h1>some child dd {{pData}}</h1>
+</app-ang-concepts>
+
+<button (click)="destroyComp()">Destroy</button>

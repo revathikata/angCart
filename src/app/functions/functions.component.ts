@@ -7,17 +7,18 @@ import { Component } from '@angular/core';
 })
 export class FunctionsComponent {
 pData= ''
-
+destroy: boolean = true;
 constructor(){
-  console.log('constructor');
   
 }
 
-  ngOnInit() {
-    console.log('ngOnIit');
+  // ngOnInit() {
+  //   console.log('ngOnIit');
     
+  // }
+  destroyComp(){
+    this.destroy = false;
   }
-
   splice() {
     let arr: any = [1, 2, 3, 4, 5];
     // Use numerical values for start index and number of elements to remove
