@@ -12,15 +12,18 @@ import {
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class FunctionsComponent {
-  pData = '';
+  pData = ''
   destroy: boolean = true;
   items = ['item1', 'item2', 'item3', 'item4'];
   childD: any;
+  desc: any;
   parentComp(newItem: any) {
     // this.items.push(newItem);
-    this.childD = newItem;
+    this.childD = newItem
   }
-  constructor() {}
+  constructor() {
+
+  }
 
   // ngOnInit() {
   //   console.log('ngOnIit');
@@ -294,10 +297,54 @@ export class FunctionsComponent {
     console.log(numbers.includes(3, 2)); // Output: true (3 is included from index 2 onwards)
   }
   At() {
-    const fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
     let index = 2;
     let fruit = fruits.at(index);
     console.log(fruit);
+  }
+  forloop() {
+    this.desc = 'A for loop is used when you know how many times you need to repeat a certain block of code. It takes three statements',
+      "1. Initialization statement 2. Condition Statement 3. Increment statement"
+    for (let i = 0; i <= 4; i++) {
+      console.log(i);
+    }
+  }
+  while() {
+    let i = 0;
+    while (i < 6) {
+      console.log(i);
+      i++
+    }
+    console.log("A while loop is used when you don’t know how many times you need to repeat a block of code, but you know the condition that will end the loop.");
+
+  }
+  doWhileLoop() {
+    console.log("A do-while loop is similar to a while loop, but the block of code is executed at least once, even if the condition is false.");
+    let i = 0;
+    do {
+      console.log(i);
+      i++;
+    } while (i < 6)
+  }
+  forInLoop() {
+    console.log("A for-in loop is used to loop through the properties of an object");
+    const obj: { [key: string]: number } = { a: 1, b: 4, c: 7 };
+
+    for (let prop in obj) {
+      if (obj.hasOwnProperty(prop)) {
+        console.log(prop + ': ' + obj[prop]);
+      }
+    }
+  }
+  forOfLoop() {
+
+    console.log("A for-of loop is used to loop through the values of an iterable object (such as an array.");
+
+    const arr = [1, 2, 3];
+
+    for (let val of arr) {
+      console.log(val);
+    }
   }
   fn1() {
     console.log('print 1 to 10');
