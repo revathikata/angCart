@@ -1,4 +1,9 @@
-import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Output,
+  ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
   selector: 'app-functions',
@@ -7,23 +12,21 @@ import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/cor
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class FunctionsComponent {
-pData= ''
-destroy: boolean = true;
-items = ['item1', 'item2', 'item3', 'item4'];
+  pData = '';
+  destroy: boolean = true;
+  items = ['item1', 'item2', 'item3', 'item4'];
   childD: any;
-parentComp(newItem: any) {
-  // this.items.push(newItem);
-  this.childD = newItem
-}
-constructor(){
-  
-}
+  parentComp(newItem: any) {
+    // this.items.push(newItem);
+    this.childD = newItem;
+  }
+  constructor() {}
 
   // ngOnInit() {
   //   console.log('ngOnIit');
-    
+
   // }
-  destroyComp(){
+  destroyComp() {
     this.destroy = false;
   }
   splice() {
@@ -290,10 +293,82 @@ constructor(){
     console.log(numbers.includes(2, 2)); // Output: false (2 is not included from index 2 onwards)
     console.log(numbers.includes(3, 2)); // Output: true (3 is included from index 2 onwards)
   }
-  At(){
-    const fruits = ["Banana", "Orange", "Apple", "Mango"];
-let index = 2;
-let fruit = fruits.at(index);
-console.log(fruit);
+  At() {
+    const fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+    let index = 2;
+    let fruit = fruits.at(index);
+    console.log(fruit);
+  }
+  fn1() {
+    console.log('print 1 to 10');
+    for (let i = 0; i <= 10; i++) {
+      console.log(i, 'res');
+    }
+  }
+  fn2() {
+    console.log('Print the odd numbers less than 100');
+    for (let i = 1; i <= 100; i += 2) {
+      console.log(i, 'res');
+    }
+  }
+  fn3() {
+    console.log('Print the odd numbers less than 100');
+    for (let i = 1; i <= 10; i++) {
+      console.log('7 * ' + i + ' = ' + 7 * i, 'res');
+    }
+  }
+  printTables() {
+    console.log(
+      'Print all the multiplication tables with numbers from 1 to 10'
+    );
+    for (let i = 1; i <= 10; i++) {
+      this.fn4(i);
+      console.log(''); // Print a newline after each table
+    }
+  }
+  fn4(n: any) {
+    for (let i = 1; i <= 10; i++) {
+      let row = n + ' * ' + i + ' = ' + n * i;
+      console.log(row);
+    }
+  }
+  fn5() {
+    console.log('Calculate the sum of numbers from 1 to 10');
+    let sum = 0;
+
+    for (let i = 1; i <= 10; i++) {
+      sum += i;
+    }
+    console.log(sum);
+  }
+  fn6() {
+    console.log('Calculate 10!');
+    let prod = 1;
+
+    for (let i = 1; i <= 10; i++) {
+      prod *= i;
+    }
+    console.log(prod);
+  }
+  fn7() {
+    let sum = 0;
+
+    for (let i = 11; i <= 30; i += 2) {
+      sum += i;
+    }
+    console.log(sum);
+  }
+  sumArray(arr: number[]): number {
+    console.log("Calculate the sum of numbers in an array of numbers");
+    let sum = 0;
+    for(let i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+    return sum;
+  }
+  calculateSum() {
+    const arr = [2, 3, -1, 5, 7, 9, 10, 15, 95];
+    const sum = this.sumArray(arr);
+    console.log(sum); // You can display it in the console or assign it to a variable for further use
   }
 }
