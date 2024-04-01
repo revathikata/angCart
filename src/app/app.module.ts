@@ -12,6 +12,8 @@ import { FilterPipe } from './components/shared/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { FunctionsComponent } from './functions/functions.component';
 import { AngConceptsComponent } from './functions/ang-concepts/ang-concepts.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { AngConceptsComponent } from './functions/ang-concepts/ang-concepts.comp
     AppRoutingModule,
     MatIconModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [
     provideClientHydration()

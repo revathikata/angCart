@@ -4,12 +4,14 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AngConceptsComponent } from './ang-concepts/ang-concepts.component';
 
 @Component({
   selector: 'app-functions',
   templateUrl: './functions.component.html',
   styleUrl: './functions.component.css',
-  encapsulation: ViewEncapsulation.Emulated,
+  // encapsulation: ViewEncapsulation.Emulated,
 })
 export class FunctionsComponent {
   pData = ''
@@ -21,7 +23,7 @@ export class FunctionsComponent {
     // this.items.push(newItem);
     this.childD = newItem
   }
-  constructor() {
+  constructor(private dialog: MatDialog) {
 
   }
 
@@ -418,4 +420,5 @@ export class FunctionsComponent {
     const sum = this.sumArray(arr);
     console.log(sum); // You can display it in the console or assign it to a variable for further use
   }
+ 
 }

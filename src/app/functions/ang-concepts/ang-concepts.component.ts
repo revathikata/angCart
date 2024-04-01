@@ -1,4 +1,5 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-ang-concepts',
@@ -9,11 +10,12 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 export class AngConceptsComponent implements OnChanges,OnInit,DoCheck,AfterContentInit
 ,AfterContentChecked, AfterViewInit,AfterViewChecked,OnDestroy{
 @Input() ChildData : any;
+ppData:any
  @Output() notify : EventEmitter<string> = new EventEmitter<string>()
  passData(){
   this.notify.emit("this msg coming from child")
  }
-constructor(){
+constructor(public dialogRef: MatDialogRef<AngConceptsComponent>){
   console.log("constructor called");
   
 }
@@ -48,5 +50,8 @@ ngAfterViewChecked(): void {
 ngOnDestroy(): void {
   console.log("ngOnDestroy called");
   
+}
+OnClose(){
+  this.dialogRef.close(this.ppData);
 }
 }

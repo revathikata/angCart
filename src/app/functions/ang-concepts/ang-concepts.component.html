@@ -1,6 +1,9 @@
 
 <ng-content></ng-content>
 <h1>angular concepts</h1>
+<mat-icon (click)="OnClose()">close</mat-icon>
 <h4 class="viewEncapsulation">viewEncapsulation none  class name given same</h4>
 {{ChildData}}
 <button type="button" (click)="passData()">send data back to parent</button>
+<input type="text" [(ngModel)] = ppData placeholder="Enter">
+<button (click)="OnClose()">submit</button>

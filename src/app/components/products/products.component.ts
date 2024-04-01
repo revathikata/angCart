@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ServicesService } from '../../service/services.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { AngConceptsComponent } from '../../functions/ang-concepts/ang-concepts.component';
 
 @Component({
   selector: 'app-products',
@@ -12,7 +14,8 @@ export class ProductsComponent {
   public productList: any;
   searchkey: string = ""
   filterCategory: any;
-  constructor(private api: ServicesService, private router: Router) { }
+  dialgDD: any[] =[];
+  constructor(private api: ServicesService, private router: Router,private dialog: MatDialog) { }
   ngOnInit(): void {
     this.api.getProduct().subscribe((res: any) => {
       this.productList = res;
@@ -44,5 +47,13 @@ export class ProductsComponent {
   }
   functions() {
     this.router.navigate(['/funtions']);
+  }
+  openDialog(){
+    const dialogRef = this.dialog.open(AngConceptsComponent,{width:'250'})
+    dialogRef.afterClosed().subscribe(result => {
+      this.dialgDD .push(result)
+      console.log(`Dialog result: ${result}`); // Pizza!
+    });
+    
   }
 }
