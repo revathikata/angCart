@@ -194,6 +194,9 @@ export class FunctionsComponent {
       reversedStr,
       "const reversedStr = str.split('').reverse().join('');"
     ); // Output: "olleh"
+    const rev = "meeting"
+    const strrev = rev.split('').reverse().join('')
+    console.log(rev,'original',  strrev, "revStr");
   }
   reduce() {
     const numbers = [1, 2, 3, 4, 5];
@@ -420,5 +423,206 @@ export class FunctionsComponent {
     const sum = this.sumArray(arr);
     console.log(sum); // You can display it in the console or assign it to a variable for further use
   }
+  
+ removeDuplicate(){
+  function removeDuplicateChars(str:any) {
+    // Convert string to an array of characters
+    const charArray = str.split('');
+    
+    // Create a set to store unique characters
+    const uniqueChars = new Set(charArray);
+    
+    // Convert the set back to an array and join to form a string
+    return [...uniqueChars].join('');
+}
+  const str = "meetinggg";
+  const removedStr = removeDuplicateChars(str);
+  console.log(removedStr);
  
+ }
+ removeDuplicateArray(){
+  const arr = ['one', 'two', 'three', 'two'];
+  const unique = arr.filter((item, index) =>arr.indexOf(item) === index)
+
+console.log(unique, 'removed duplicate');
+ }
+ removeChar(){
+  function removeDuplicateChars(str: string) {
+    return str
+        .split('')                               // Convert the string to an array of characters
+        .filter((char, index, self) =>           // Filter out duplicate characters
+            self.indexOf(char) === index)
+        .join('');                               // Join the characters back into a string
+}
+
+const originalString = 'meeetting';
+const uniqueString = removeDuplicateChars(originalString);
+
+console.log(originalString,'original',uniqueString, 'removechar duplicate');  
+ }
+ checkPlaindrom(){
+  function isPalindrome(str: string) {
+    // Convert the string to lowercase and remove non-alphanumeric characters
+    const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+    // Compare the clean string with its reverse
+    return cleanStr === cleanStr.split('').reverse().join('');
+}
+
+// Test cases
+console.log(isPalindrome("racecar"), 'isPalindrome("racecar")'); // Output: true
+console.log(isPalindrome("Hello"), 'isPalindrome("Hello")');   // Output: false
+console.log(isPalindrome("meeting"), 'isPalindrome("meeting")');   
+console.log(isPalindrome("mannam"), 'isPalindrome("mannam")');   
+ }
+ numberOfnumerical(){
+  function countNumericals(str: string) {
+    let count = 0;
+    for (let char of str) {
+        if (!isNaN(parseInt(char))) {
+            count++;
+        }
+    }
+    return count;
+}
+
+// Example usage:
+const myString = "Hello123World4567";
+const numericalCount = countNumericals(myString);
+console.log("Number of numericals in the string:", numericalCount);
+ }
+ countOccPartiChar(){
+  function countOccurrences(str: string, char: string) {
+    let count = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str.charAt(i) === char) {
+            count++;
+        }
+    }
+    return count;
+}
+
+// Example usage:
+const myString = "Hello World";
+const charToCount = "l";
+const occurrenceCount = countOccurrences(myString, charToCount);
+console.log("Occurrences of '" + charToCount + "' in the string:", occurrenceCount);
+ }
+ findnonMatchingChar(){
+  function findNonMatchingCharacters(str1: string, str2: string) {
+    const nonMatchingChars = [];
+    const maxLength = Math.max(str1.length, str2.length);
+
+    for (let i = 0; i < maxLength; i++) {
+        if (str1[i] !== str2[i]) {
+            if (str1[i] !== undefined) {
+                nonMatchingChars.push(str1[i]);
+            }
+            if (str2[i] !== undefined) {
+                nonMatchingChars.push(str2[i]);
+            }
+        }
+    }
+
+    return nonMatchingChars;
+}
+
+// Example usage:
+const string1 = "hello";
+const string2 = "helicopter";
+const nonMatching = findNonMatchingCharacters(string1, string2);
+console.log("Non-matching characters:", nonMatching);
+ }
+ totalMatchingIntergers(){
+  function totalMatchingIntegers(arr: any) {
+    let total = 0;
+
+    for (let element of arr) {
+        if (Number.isInteger(element)) {
+            total += element;
+        }
+    }
+
+    return total;
+}
+
+// Example usage:
+const array = [1, 2, "3", 4, "5", 6];
+const sumOfIntegers = totalMatchingIntegers(array);
+console.log("Sum of matching integers:", sumOfIntegers);
+ }
+ findMaxnumber(){
+  function findMax(arr: any) {
+    if (arr.length === 0) {
+        return undefined; // Return undefined if the array is empty
+    }
+    return Math.max(...arr);
+}
+  const numbers = [5, 3, 9, 1, 8, 2];
+const maxNumber = findMax(numbers);
+console.log("Maximum element:", maxNumber);
+ }
+ sortAccending(){
+  function sortAscending(arr:any) {
+    // Use the sort() method with a comparison function
+    arr.sort(function(a:any, b:any) {
+        return a - b; // Compare function for ascending order
+    });
+    return arr;
+}
+
+// Example usage:
+const numbers = [5, 3, 9, 1, 8, 2];
+const sortedNumbers = sortAscending(numbers);
+console.log("Sorted array in ascending order:", sortedNumbers);
+ }
+ sortDecending(){
+  function sortDescending(arr:any) {
+    // Use the sort() method with a comparison function
+    arr.sort(function(a:any, b:any) {
+        return b - a; // Compare function for descending order
+    });
+    return arr;
+}
+
+// Example usage:
+const numbers = [5, 3, 9, 1, 8, 2];
+const sortedNumbersDescending = sortDescending(numbers);
+console.log("Sorted array in descending order:", sortedNumbersDescending);
+ }
+sum(){
+  const num1 = 5;
+const num2 = 10;
+const sum = num1 + num2
+console.log("Sum of", num1, "and", num2, "is", sum);
+// or
+function sumOfIntegers(a:any, b:any) {
+  return a + b;
+}
+
+// Example usage:
+const numb1 = 8;
+const numb2 = 11;
+const sum2 = sumOfIntegers(numb1, numb2);
+console.log("Sum of", numb1, "and", numb2, "is", sum2);
+}
+Average(){
+  function calculateAverage(numbers:any) {
+    const sum = numbers.reduce((acc:any, curr:any) => acc + curr, 0);
+    return sum / numbers.length;
+}
+
+// Example usage:
+const numbers = [10, 20, 30, 40, 50]; // Example list of numbers
+const average = calculateAverage(numbers);
+console.log("Average:", average);
+}
+even(){
+  function isEven(num:any) {
+    return num % 2 === 0;
+}
+
+// Example usage:
+console.log(isEven(4)); // Output: true (4 is even)
+console.log(isEven(7)); // Output: false (7 is odd)
+}
 }
