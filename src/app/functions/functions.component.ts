@@ -441,11 +441,11 @@ export class FunctionsComponent {
  
  }
  removeDuplicateArray(){
-  const arr = ['one', 'two', 'three', 'two'];
-  const unique = arr.filter((item, index) =>arr.indexOf(item) === index)
+    const arr = ['one', 'two', 'three', 'two'];
+    const unique = arr.filter((item, index) =>arr.indexOf(item) === index)
 
-console.log(unique, 'removed duplicate');
- }
+  console.log(unique, 'removed duplicate');
+  }
  removeChar(){
   function removeDuplicateChars(str: string) {
     return str
@@ -624,5 +624,24 @@ even(){
 // Example usage:
 console.log(isEven(4)); // Output: true (4 is even)
 console.log(isEven(7)); // Output: false (7 is odd)
+}
+subStr(){
+  function findAllSubstrings(input:any) {
+    const result = [];
+    const n = input.length;
+
+    for (let i = 0; i < n; i++) {
+        for (let j = i + 1; j <= n; j++) {
+            result.push(input.slice(i, j).join(''));
+        }
+    }
+
+    return result;
+}
+
+// Example usage:
+const input = ['a', 'b', 'c', 'd'];
+const substrings = findAllSubstrings(input);
+console.log("All possible substrings:", substrings);
 }
 }
