@@ -10,3 +10,17 @@
 <button (click)="sub()">substr</button>
 <button (click)="removeDuplicate()">removeDuplicate</button>
 <button (click)="removChar()">removChar</button>
+<button (click)="practice()">practice</button>
+<button (click)="jsonData()">jsonData</button>
+<div *ngFor="let order of getDD; let i = index">
+    {{ order.customer_name }}
+    <span *ngFor="let item of order.items; let j = index">
+        {{ j + 1 }}.{{item.name }}-Price:{{item.price}}-Qantity{{item.quantity}}
+    </span>
+</div>
+<button (click)="removeArray()">removeArray</button>
+<button (click)="add()">add</button>
+<p *ngFor="let dd of addedArray; let i=index">{{dd.name}}</p><button (click)="remov()" *ngIf="addedArray >= 1">remove</button>
+
+<button (click)="pract()">fn pract</button>
+<button (click)="practice2()">practice</button>
