@@ -136,6 +136,7 @@ export class FunctionsComponent {
     console.log('swap:', x, 'and', y);
     [y, x] = [x, y];
     console.log('swap original:', x, 'and', y);
+
   }
   concatination() {
     // Concatenating arrays
@@ -644,4 +645,71 @@ const input = ['a', 'b', 'c', 'd'];
 const substrings = findAllSubstrings(input);
 console.log("All possible substrings:", substrings);
 }
+fn(){
+  function map(f:any, a:any) {
+    const result = new Array(a.length);
+    for (let i = 0; i < a.length; i++) {
+      result[i] = f(a[i]);
+    }
+    return result;
+  }
+  
+  const cube = function (x:any) {
+    return x * x * x;
+  };
+  
+  const numbers = [0, 1, 2, 5, 10];
+  console.log(map(cube, numbers));
+
+  // FN
+  function add(a:any, b:any) {
+    return a + b;
+}
+
+let sum = add;
+
+function average(a:any, b:any, fn:any) {
+    return fn(a, b) / 2;
+}
+
+let result = average(10, 20, sum);
+
+console.log(result);
+
+// fnn
+function compareBy(propertyName:any) {
+  return function (a:any, b:any) {
+    let x = a[propertyName],
+      y = b[propertyName];
+
+    if (x > y) {
+      return 1;
+    } else if (x < y) {
+      return -1;
+    } else {
+      return 0;
+    }
+  };
+}
+let products = [
+  { name: 'iPhone', price: 900 },
+  { name: 'Samsung Galaxy', price: 850 },
+  { name: 'Sony Xperia', price: 700 },
+  { name: 'tata motor', price: 500 },
+];
+
+// sort products by name
+console.log('Products sorted by name:');
+products.sort(compareBy('name'));
+
+console.table(products);
+
+// sort products by price
+console.log('Products sorted by price:');
+products.sort(compareBy('price'));
+console.table(products);
+
+  
+}
+
 }

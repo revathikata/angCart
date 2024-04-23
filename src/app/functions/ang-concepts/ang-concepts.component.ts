@@ -16,6 +16,7 @@ export class AngConceptsComponent implements OnChanges, OnInit, DoCheck, AfterCo
   getDD: any = [];
   getItems: any = [];
   addedArray: any = [];
+  myDate = new Date()
   passData() {
     this.notify.emit("this msg coming from child")
   }
@@ -172,7 +173,7 @@ export class AngConceptsComponent implements OnChanges, OnInit, DoCheck, AfterCo
     printMsg(isEven, 4);
     // => The number 4 is an even number: True.
 
-// reduce
+    // reduce
     const numbers = [1, 2, 3, 4];
 
     const sum = numbers.reduce((accumulator, curVal) => {
@@ -181,7 +182,7 @@ export class AngConceptsComponent implements OnChanges, OnInit, DoCheck, AfterCo
 
     console.log(sum); // 10
     const members = ["Taylor", "Donald", "Don", "Natasha", "Bobby"];
-// map
+    // map
     const announcements = members.map((member) => {
       return member + " joined the contest.";
     });
@@ -190,127 +191,133 @@ export class AngConceptsComponent implements OnChanges, OnInit, DoCheck, AfterCo
     // for each
     const numberss = [28, 77, 45, 99, 27];
 
-    numberss.forEach((number,index) => {  
-  console.log(`${index}:${number}`);
-}); 
-// filter
-const randomNumbers = [4, 11, 42, 14, 39];
-const filteredArray = randomNumbers.filter(n => {  
-  return n > 5;
-});
-console.log(filteredArray,'filter');
-// 
+    numberss.forEach((number, index) => {
+      console.log(`${index}:${number}`);
+    });
+    // filter
+    const randomNumbers = [4, 11, 42, 14, 39];
+    const filteredArray = randomNumbers.filter(n => {
+      return n > 5;
+    });
+    console.log(filteredArray, 'filter');
+    // 
 
-// const promise = new Promise((resolve, reject) => {
-//   const res = true;
-//   // An asynchronous operation.
-//   if (res) {
-//     resolve('Resolved!');
-//   }
-//   else {
-//     reject(Error('Error'));
-//   }
-// });
+    // const promise = new Promise((resolve, reject) => {
+    //   const res = true;
+    //   // An asynchronous operation.
+    //   if (res) {
+    //     resolve('Resolved!');
+    //   }
+    //   else {
+    //     reject(Error('Error'));
+    //   }
+    // });
 
-// promise.then((res) => console.log(res), (err) => console.error(err));
-// .then
-// const promise = new Promise((resolve, reject) => {    
-//   setTimeout(() => {
-//     resolve('Result');
-//   }, 200);
-// });
+    // promise.then((res) => console.log(res), (err) => console.error(err));
+    // .then
+    // const promise = new Promise((resolve, reject) => {    
+    //   setTimeout(() => {
+    //     resolve('Result');
+    //   }, 200);
+    // });
 
-// promise.then((res) => {
-//   console.log(res);
-// }, (err) => {
-//   console.error(err);
-// });
-// promise all
-// const promise1 = new Promise((resolve, reject) => {
-//   setTimeout(() => {
-//     resolve(3);
-//   }, 300);
-// });
-// const promise2 = new Promise((resolve, reject) => {
-//   setTimeout(() => {
-//     resolve(2);
-//   }, 200);
-// });
+    // promise.then((res) => {
+    //   console.log(res);
+    // }, (err) => {
+    //   console.error(err);
+    // });
+    // promise all
+    // const promise1 = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve(3);
+    //   }, 300);
+    // });
+    // const promise2 = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve(2);
+    //   }, 200);
+    // });
 
-// Promise.all([promise1, promise2]).then((res) => {
-//   console.log(res[0]);
-//   console.log(res[1]);
-// });
-// nested promise and .then
-// const promise = new Promise((resolve, reject) => {  
-//   setTimeout(() => {
-//     resolve('*');
-//   }, 1000);
-// });
+    // Promise.all([promise1, promise2]).then((res) => {
+    //   console.log(res[0]);
+    //   console.log(res[1]);
+    // });
+    // nested promise and .then
+    // const promise = new Promise((resolve, reject) => {  
+    //   setTimeout(() => {
+    //     resolve('*');
+    //   }, 1000);
+    // });
 
-// const twoStars = (star:any) => {  
-//   return (star + star);
-// };
+    // const twoStars = (star:any) => {  
+    //   return (star + star);
+    // };
 
-// const oneDot = (star:any) => {  
-//   return (star + '.');
-// };
+    // const oneDot = (star:any) => {  
+    //   return (star + '.');
+    // };
 
-// const print = (val:any) => {
-//   console.log(val);
-// };
+    // const print = (val:any) => {
+    //   console.log(val);
+    // };
 
-// // Chaining them all together
-// promise.then(twoStars).then(oneDot).then(print);
+    // // Chaining them all together
+    // promise.then(twoStars).then(oneDot).then(print);
 
-// multiple chaining .then
-// const promise = new Promise(resolve => setTimeout(() => resolve('dAlan'), 100));
+    // multiple chaining .then
+    // const promise = new Promise(resolve => setTimeout(() => resolve('dAlan'), 100));
 
-// promise.then(res => {
-//   return res === 'Alan' ? Promise.resolve('Hey Alan!') : Promise.reject('Who are you?')
-// }).then((res) => {
-//   console.log(res)
-// }, (err) => {
-//   console.error(err)
-// });
+    // promise.then(res => {
+    //   return res === 'Alan' ? Promise.resolve('Hey Alan!') : Promise.reject('Who are you?')
+    // }).then((res) => {
+    //   console.log(res)
+    // }, (err) => {
+    //   console.error(err)
+    // });
 
-// fake promise http req
-const mock = (success:any, timeout = 1000) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if(success) {
-        resolve({status: 200, data:{}});
-      } else {
-        reject({message: 'Error'});
-      }
-    }, timeout);
-  });
-}
-const someEvent = async () => {
-  try {
-    await mock(true, 1000);
-  } catch (e:any) {
-    console.log(e.message,someEvent);
-  }
-}
-// const xhr = new XMLHttpRequest();
-// xhr.open('GET', 'mysite.com/getjson');
-// console.log(xhr);
-  }
-  practice2(){
-    function substrgg(sub: any) {
-      const result = [];
-     for(let i = 0; i < sub.length; i++ ){
-      for(let j = i + 1; j <= sub.length; j++){
-        result.push(sub.slice(i, j).join(''));
-      }
-     }
-     return result;
+    // fake promise http req
+    const mock = (success: any, timeout = 1000) => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (success) {
+            resolve({ status: 200, data: {} });
+          } else {
+            reject({ message: 'Error' });
+          }
+        }, timeout);
+      });
     }
-  const arr = ['a','b','c','d']
-  const formdd = substrgg(arr);
-  console.log(formdd, 'substr formated');
-  
+    const someEvent = async () => {
+      try {
+        await mock(true, 1000);
+      } catch (e: any) {
+        console.log(e.message, someEvent);
+      }
+    }
+    // const xhr = new XMLHttpRequest();
+    // xhr.open('GET', 'mysite.com/getjson');
+    // console.log(xhr);
   }
- 
+  practice2() {
+    // function substrgg(sub: any) {
+    //   const result = [];
+    //   for (let i = 0; i < sub.length; i++) {
+    //     for (let j = i + 1; j <= sub.length; j++) {
+    //       result.push(sub.slice(i, j).join(''));
+    //     }
+    //   }
+    //   return result;
+    // }
+    // const arr = ['a', 'b', 'c', 'd']
+    // const formdd = substrgg(arr);
+    // console.log(formdd, 'substr formated');
+    function removeDuplicates(arr:any) { 
+      const array = arr.split('')
+      const uniqueChars = new Set(array)
+      return [...uniqueChars].join('');
+    } 
+    const arr = 'meeteting'
+    console.log(removeDuplicates(arr));
+    
+}
 }
