@@ -6,7 +6,6 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AngConceptsComponent } from './ang-concepts/ang-concepts.component';
-
 @Component({
   selector: 'app-functions',
   templateUrl: './functions.component.html',
@@ -19,11 +18,14 @@ export class FunctionsComponent {
   items = ['item1', 'item2', 'item3', 'item4'];
   childD: any;
   desc: any;
+  listData:any =[1,2,3,4,5,6,7,8,9,11,13,14,16,18]
+  removedArray: any[] =[];
+  searchletter: any;
   parentComp(newItem: any) {
     // this.items.push(newItem);
     this.childD = newItem
   }
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog,) {
 
   }
 
@@ -711,5 +713,49 @@ console.table(products);
 
   
 }
+remove(){
+  // const remvddd = this.listData.shift()
+  // console.log(remvddd,'shift is removing first ele');
+  // const remvddd = this.listData.unshift(3,4)
+  // console.log(remvddd,'unshift is removing first ele');
+  const remvddd = this.listData.pop(3)
+  console.log(remvddd,'pop is removes last ele');
+  this.removedArray.push(remvddd)
+  console.log(this.listData,'dd');
+  this.listData = [...this.listData];
+  
+}
+undo(){
+  if(this.removedArray.length > 0){
+    this.listData.push(this.removedArray.pop())
+    console.log(this.listData, 'list');
+    console.log(this.removedArray, 'rem');
+    this.listData = [...this.listData];
+  }
+}
 
+findremove(){
+  console.log("Search letter:", this.searchletter);
+  const searchString = String(this.searchletter);
+  const index = this.listData.findIndex((item: any) => 
+    { const itemString = String(item);
+    return itemString === searchString;
+  });
+console.log("Index found:", index);
+
+// If the element is found (index is not -1), remove it from the array
+if (index !== -1) {
+  this.listData.splice(index, 1);
+  console.log("Updated listData:", this.listData);
+} else {
+  console.log("Element not found in listData.");
+}
+this.listData = [...this.listData];
+}
+addItem(){
+  this.listData.push(this.searchletter)
+  console.log(this.listData,'added');
+  this.listData = [...this.listData];
+  
+}
 }

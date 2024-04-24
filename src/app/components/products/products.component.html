@@ -24,11 +24,14 @@
                 <h6>jewelery</h6>
             </a>
         </div>
-
         <button (click)="functions()">functions</button>
         <button (click) ="openDialog()">dilogue</button>
         <button mat-flat-button color="warn">Warn</button>
-      <ul><li *ngFor="let item of dialgDD">{{item}}</li></ul>       
+      <ul>
+        <li *ngFor="let item of dialogDD">{{item.time}}, {{item.value}}<mat-icon class="text-danger" (click)="remove(item)">remove_circle</mat-icon>
+        </li>
+    </ul>   
+    <mat-icon *ngIf="dialogDD.length > 0 " (click)="undoRemove()">undo</mat-icon>    
     </div>
 </div>
 

@@ -14,6 +14,7 @@ import { FunctionsComponent } from './functions/functions.component';
 import { AngConceptsComponent } from './functions/ang-concepts/ang-concepts.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatButtonModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
