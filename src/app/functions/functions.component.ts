@@ -6,6 +6,9 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AngConceptsComponent } from './ang-concepts/ang-concepts.component';
+import { TestServiceService } from '../test-service.service';
+import { SharedServiceService } from '../shared-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-functions',
   templateUrl: './functions.component.html',
@@ -25,14 +28,16 @@ export class FunctionsComponent {
     // this.items.push(newItem);
     this.childD = newItem
   }
-  constructor(private dialog: MatDialog,) {
+  constructor(private dialog: MatDialog, private TestService: TestServiceService,
+    private sharedService: SharedServiceService,private router: Router,
+  ) {
 
   }
 
-  // ngOnInit() {
-  //   console.log('ngOnIit');
+  ngOnInit() {
+    console.log('ngOnIit');
 
-  // }
+  }
   destroyComp() {
     this.destroy = false;
   }
@@ -753,9 +758,36 @@ if (index !== -1) {
 this.listData = [...this.listData];
 }
 addItem(){
-  this.listData.push(this.searchletter)
-  console.log(this.listData,'added');
-  this.listData = [...this.listData];
+
+  if (typeof this.searchletter === 'string') {
+    this.listData.push( this.searchletter);
+    console.log('tsr',this.listData);
+    
+  } else {
+    this.listData.push( JSON.parse(this.searchletter));
+  }
   
+  console.log(this.listData, 'added');
+
+  this.listData = [...this.listData];
 }
+duplicRemove(){
+  const unique = this.listData.filter((item:any, index:any) =>this.listData.indexOf(item) === index)
+  console.log(unique);
+  this.listData = [...this.listData];
+}
+checkService(){
+  this.TestService.testFunction().subscribe((res: any) => {
+    console.log(res); // Output the result to the console
+    this.sharedService.setCustomerProposal(JSON.stringify(res)) ;
+    console.log("Data set in Shared Service:", this.sharedService.getCustomerProposal());
+    localStorage.setItem('res',JSON.stringify(res))
+    this.router.navigate(['/']);
+  });
+}
+getshare(){
+  const data = this.sharedService.getCustomerProposal()
+  console.log(data,'getshared');
+  
+ }
 }

@@ -3,6 +3,7 @@ import { ServicesService } from '../../service/services.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AngConceptsComponent } from '../../functions/ang-concepts/ang-concepts.component';
+import { SharedServiceService } from '../../shared-service.service';
 
 @Component({
   selector: 'app-products',
@@ -17,7 +18,9 @@ export class ProductsComponent {
   dialgDD: any[] =[];
   dialogDD: any[] =[];
   removedItems: any[] =[];
-  constructor(private api: ServicesService, private router: Router,private dialog: MatDialog) { }
+  constructor(private api: ServicesService, private router: Router,private dialog: MatDialog,
+    private sharedService: SharedServiceService
+  ) { }
   ngOnInit(): void {
     this.api.getProduct().subscribe((res: any) => {
       this.productList = res;
@@ -78,5 +81,9 @@ export class ProductsComponent {
         const lastRemovedItem = this.removedItems.pop();
         this.dialogDD.push(lastRemovedItem);
     }
+  }
+  getshare(){
+   const data = this.sharedService.getCustomerProposal()
+   console.log(data,'getshared');
   }
 }

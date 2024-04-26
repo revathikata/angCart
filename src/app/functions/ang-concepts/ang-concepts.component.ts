@@ -1,7 +1,7 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewEncapsulation } from '@angular/core';
 // import { MatDialogRef } from '@angular/material/dialog';
 import dumData from '../../../assets/data/dumData.json';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-ang-concepts',
@@ -21,7 +21,7 @@ export class AngConceptsComponent implements OnChanges, OnInit, DoCheck, AfterCo
   passData() {
     this.notify.emit("this msg coming from child")
   }
-  constructor(private dialogRef: MatDialogRef<AngConceptsComponent>) {
+  constructor( ) {
     console.log("constructor called");
 
   }
@@ -62,7 +62,7 @@ export class AngConceptsComponent implements OnChanges, OnInit, DoCheck, AfterCo
       time:this.myDate,
       value:this.ppData
     }
-    this.dialogRef.close(data);
+    // this.dialogRef.close(data);
   }
   findSubstrings(inputString: any) {
     const substrings = [];

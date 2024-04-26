@@ -27,6 +27,7 @@
         <button (click)="functions()">functions</button>
         <button (click) ="openDialog()">dilogue</button>
         <button mat-flat-button color="warn">Warn</button>
+        <button  (click) ="getshare()">getshare</button>
       <ul>
         <li *ngFor="let item of dialogDD">{{item.time}}, {{item.value}}<mat-icon class="text-danger" (click)="remove(item)">remove_circle</mat-icon>
         </li>

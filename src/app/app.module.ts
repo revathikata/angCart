@@ -12,9 +12,11 @@ import { FilterPipe } from './components/shared/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { FunctionsComponent } from './functions/functions.component';
 import { AngConceptsComponent } from './functions/ang-concepts/ang-concepts.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { CheckpipesPipe } from './checkpipes.pipe';
+import { SharedServiceService } from './shared-service.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     ProductsComponent,
     FilterPipe,
     FunctionsComponent,
-    AngConceptsComponent
+    AngConceptsComponent,
+    CheckpipesPipe
   ],
   imports: [
     BrowserModule,
@@ -35,8 +38,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     MatButtonModule
   ],
   providers: [
-    provideClientHydration(),
-    provideAnimationsAsync()
+    SharedServiceService,
   ],
   bootstrap: [AppComponent]
 })
